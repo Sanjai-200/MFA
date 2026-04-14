@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Dashboard — RBACMatrix AI</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="dash-body">
+<div class="dash">
+  <aside class="sidebar">
+    <div class="sb-head">
+      <div class="sb-tag">RBACMatrix</div>
+      <div class="sb-title">My <span>Account</span></div>
+    </div>
+    <div class="sb-user">
+      <div class="avatar av-user">U</div>
+      <div><div class="sb-uname" id="sb-name">User</div>
+      <div class="sb-urole role-user">User</div></div>
+    </div>
+    <nav class="sb-nav">
+      <div class="nav-sec">My Account</div>
+      <a class="nav-item active" data-s="profile"><span class="nav-icon">👤</span>Profile</a>
+      <a class="nav-item" data-s="activity"><span class="nav-icon">🕐</span>Login Activity</a>
+      <a class="nav-item" data-s="security"><span class="nav-icon">🔒</span>Security Info</a>
+    </nav>
+    <div class="sb-foot"><button class="logout-btn" id="logout-btn">🚪 Sign Out</button></div>
+  </aside>
+  <main class="main">
+
+    <div id="s-profile" class="section active">
+      <div class="pg-head"><div><h1>My Profile</h1><p>Your account information</p></div></div>
+      <div class="profile-card">
+        <div class="profile-av av-user" id="pav">U</div>
+        <div class="profile-info">
+          <h2 id="pname">—</h2>
+          <p id="pemail">—</p>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <span id="prole"></span><span id="pstatus"></span>
+          </div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-item"><div class="info-lbl">Email</div><div class="info-val" id="i-email">—</div></div>
+        <div class="info-item"><div class="info-lbl">Name</div><div class="info-val" id="i-name">—</div></div>
+        <div class="info-item"><div class="info-lbl">Role</div><div class="info-val" id="i-role">—</div></div>
+        <div class="info-item"><div class="info-lbl">Status</div><div class="info-val" id="i-status">—</div></div>
+        <div class="info-item"><div class="info-lbl">Member Since</div><div class="info-val" id="i-created">—</div></div>
+      </div>
+      <button class="dbtn dbtn-outline" id="edit-btn">✏️ Edit Name</button>
+      <div id="edit-form" style="display:none;gap:10px;margin-top:12px;align-items:center;flex-wrap:wrap">
+        <input type="text" id="new-name" placeholder="New name…"
+          style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--dtext);font-family:var(--font);font-size:13px;outline:none;min-width:200px">
+        <button class="dbtn dbtn-success" id="save-name">Save</button>
+      </div>
+    </div>
+
+    <div id="s-activity" class="section">
+      <div class="pg-head"><div><h1>Login Activity</h1><p>Your personal login history</p></div></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Action</th><th>Risk</th><th>Status</th><th>Timestamp</th></tr></thead>
+          <tbody id="act-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="s-security" class="section">
+      <div class="pg-head"><div><h1>Security Info</h1><p>How your account is protected</p></div></div>
+      <div class="info-grid">
+        <div class="info-item"><div class="info-lbl">Last Login Risk</div><div class="info-val" id="sec-last-risk">—</div></div>
+        <div class="info-item"><div class="info-lbl">Last Login Time</div><div class="info-val" id="sec-last-time">—</div></div>
+        <div class="info-item"><div class="info-lbl">Last Action</div><div class="info-val" id="sec-last-action">—</div></div>
+        <div class="info-item"><div class="info-lbl">Last Device</div><div class="info-val" id="sec-device">—</div></div>
+        <div class="info-item"><div class="info-lbl">Last Location</div><div class="info-val" id="sec-location">—</div></div>
+        <div class="info-item"><div class="info-lbl">MFA Status</div><div class="info-val" style="color:var(--success)">✓ OTP triggered on high risk</div></div>
+      </div>
+      <div class="warn-box">Only you can see your own data. Contact an admin if you notice suspicious activity.</div>
+    </div>
+
+  </main>
+</div>
+<div id="toast"></div>
+<script type="module" src="/static/js/user.js"></script>
+</body>
+</html>

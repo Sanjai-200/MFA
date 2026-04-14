@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home — RBACMatrix AI</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="auth-body">
+<div class="box">
+  <h2>Welcome</h2>
+  <p>Redirecting to your dashboard...</p>
+  <div id="msg"></div>
+</div>
+<script type="module">
+  import { getUser, getToken } from "/static/js/utils.js";
+  const user = getUser(); const token = getToken();
+  if (!user || !token) { window.location.href="/"; }
+  else {
+    const map={super_admin:"/super-admin",admin:"/admin",user:"/user"};
+    window.location.href = map[user.role]||"/";
+  }
+</script>
+</body>
+</html>

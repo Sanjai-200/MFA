@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OTP Verification — RBACMatrix AI</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="auth-body">
+<div class="box">
+  <h2>OTP Verification</h2>
+  <div class="risk-box" id="risk-info">⚠️ High risk login detected</div>
+  <p>OTP sent to: <strong id="otp-email" style="color:var(--text-link)"></strong></p>
+  <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6" inputmode="numeric" style="text-align:center;font-size:1.4rem;letter-spacing:8px;font-weight:700">
+  <div class="otp-timer">Expires in <span id="timer">01:00</span></div>
+  <button id="verifyBtn" class="verify-btn">Verify OTP</button>
+  <button id="resendBtn" class="resend-btn">Resend OTP</button>
+  <div id="msg"></div>
+  <p><a href="/">← Back to Login</a></p>
+</div>
+<script type="module" src="/static/js/otp.js"></script>
+</body>
+</html>
